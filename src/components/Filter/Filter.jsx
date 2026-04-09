@@ -1,7 +1,7 @@
 "use client";
 
-import "../../styles/filter.css";
-import { SearchBar } from "../SearchBar/SearchBar";
+import "@/styles/filter.css";
+import { SearchBar } from "@/components/SearchBar/SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";

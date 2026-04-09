@@ -1,7 +1,7 @@
 import recipes from "../../data/recipes.json";
-import styles from "./page.module.css";
-import { RecipeCard } from "./components/RecipeCard/RecipeCard";
-import { Filter } from "./components/Filter/Filter";
+import styles from "@/styles/page.module.css";
+import { RecipeCard } from "@/components/RecipeCard/RecipeCard";
+import { Filter } from "@/components/Filter/Filter";
 
 export default function Home() {
   return (

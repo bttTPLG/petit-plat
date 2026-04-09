@@ -1,7 +1,7 @@
 import { Anton, Manrope } from "next/font/google";
-import "./globals.css";
-import { Footer } from "./components/Footer/Footer";
-import { Banner } from "./components/Banner/Banner";
+import "@/styles/globals.css";
+import { Footer } from "@/components/Footer/Footer";
+import { Banner } from "@/components//Banner/Banner";
 
 const anton = Anton({
   subsets: ["latin"],

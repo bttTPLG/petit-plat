@@ -1,12 +1,13 @@
 import Image from "next/image";
-import "../../styles/recipeCard.css";
+import Link from "next/link";
+import "@/styles/recipeCard.css";
 
 export function RecipeCard({ recipe }) {
   return (
-    <a className="recipe-card-container" href="#">
+    <Link href={`/recipe/${recipe.id}`} className="recipe-card-container">
       <article>
         <div className="time">
-          <p>{recipe.time}</p>
+          <p>{recipe.time}min</p>
         </div>
         <Image
           src={`/images/${recipe.image}`}
@@ -37,6 +38,6 @@ export function RecipeCard({ recipe }) {
           </div>
         </div>
       </article>
-    </a>
+    </Link>
   );
 }

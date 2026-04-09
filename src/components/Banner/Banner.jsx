@@ -1,6 +1,6 @@
 import Image from "next/image";
-import "../../styles/banner.css";
-import { SearchBar } from "../SearchBar/SearchBar";
+import "@/styles/banner.css";
+import { SearchBar } from "@/components/SearchBar/SearchBar";
 
 export function Banner() {
   return (
