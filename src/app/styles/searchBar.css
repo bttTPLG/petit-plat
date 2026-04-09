@@ -1,0 +1,79 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 954px;
+  width: 100%;
+  height: auto;
+  padding: 10px 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.search-bar input {
+  color: #7a7a7a;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: transparent;
+  border: none;
+  flex: 1;
+  margin-left: 25px;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 51px;
+  height: 52px;
+  background-color: Black;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.glass-icon {
+  height: 28px;
+}
+
+.filter-content .search-bar {
+  max-width: none;
+  width: auto;
+  padding: 0;
+  border: 1px solid #c6c6c6;
+  border-radius: 2px;
+  margin: 0px 16px;
+  box-sizing: border-box;
+}
+
+.filter-content .search-bar input {
+  width: 100%;
+  margin: 0;
+  color: #c6c6c6;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 9px 0 9px 9px;
+}
+
+.filter-content .search-bar button {
+  width: 13px;
+  height: 14px;
+  margin-right: 9px;
+  padding: 0;
+  color: #7a7a7a;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-content .search-bar button .glass-icon {
+  height: 12px;
+  width: 12px;
+  color: #7a7a7a;
+}

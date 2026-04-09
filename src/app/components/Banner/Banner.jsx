@@ -1,7 +1,6 @@
 import Image from "next/image";
 import "../../styles/banner.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 export function Banner() {
   return (
@@ -18,15 +17,9 @@ export function Banner() {
         <h1>
           DÉCOUVREZ NOS RECETTES <br /> DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
         </h1>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Rechercher une recette, un ingrédient, ..."
-          />
-          <button>
-            <FontAwesomeIcon icon={faMagnifyingGlass} className="glass-icon" />
-          </button>
-        </div>
+        <SearchBar
+          placeholderText={"Rechercher une recette, un ingrédient, ..."}
+        />
       </div>
     </header>
   );

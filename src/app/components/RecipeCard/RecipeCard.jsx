@@ -5,6 +5,9 @@ export function RecipeCard() {
   return (
     <a className="recipe-card-container" href="#">
       <article>
+        <div className="time">
+          <p>10min</p>
+        </div>
         <Image
           src="/images/banner.jpg"
           alt="Logo les petits plat"
