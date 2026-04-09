@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export function Banner() {
   return (
-    <div className="banner">
+    <header className="banner">
       <div className="logo-container">
         <Image
           src="/Logo.svg"
@@ -28,6 +28,6 @@ export function Banner() {
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
