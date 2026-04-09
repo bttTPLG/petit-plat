@@ -6,13 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-export function Filter() {
+export function Filter({ category }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="filter">
       <button onClick={() => setIsOpen(!isOpen)}>
-        Ingrédients <FontAwesomeIcon icon={faAngleDown} className="arrow" />
+        {category} <FontAwesomeIcon icon={faAngleDown} className="arrow" />
       </button>
       {isOpen ? (
         <div className="filter-content">

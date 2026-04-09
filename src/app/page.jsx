@@ -1,4 +1,4 @@
-import Image from "next/image";
+import recipes from "../../data/recipes.json";
 import styles from "./page.module.css";
 import { RecipeCard } from "./components/RecipeCard/RecipeCard";
 import { Filter } from "./components/Filter/Filter";
@@ -9,17 +9,18 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.filters_container}>
           <div className={styles.filters}>
-            <Filter />
+            <Filter category="Ingrédients" />
+            <Filter category="Appareils" />
+            <Filter category="Ustensiles" />
           </div>
           <div className={styles.counter_recipes}>
             <p>50 recettes</p>
           </div>
         </div>
         <div className={styles.recipes_container}>
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
+          {recipes.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
         </div>
       </main>
     </div>
