@@ -2,6 +2,8 @@ import styles from "@/styles/page.module.css";
 import "@/styles/recipe.css";
 import Image from "next/image";
 import recipes from "../../../../data/recipes.json";
+import { Banner } from "@/components/Banner/Banner";
+import NotFound from "@/app/not-found";
 
 export default async function RecipePage({ params }) {
   const { slug } = await params;
@@ -9,10 +11,11 @@ export default async function RecipePage({ params }) {
   const recipe = recipes.find((r) => r.slug === slug);
 
   if (!recipe) {
-    return <p>Recette introuvable</p>;
+    return <NotFound />;
   }
   return (
     <div className={styles.page}>
+      <Banner />
       <main className={styles.main}>
         <div className={styles.grid_container}>
           <Image
@@ -26,7 +29,7 @@ export default async function RecipePage({ params }) {
             <h1>{recipe.name}</h1>
             <div className="info">
               <h2>Temps de préparation</h2>
-              <p className="time">{recipe.time}min</p>
+              <p className="recipe-time">{recipe.time}min</p>
             </div>
             <div className="info">
               <h2>Ingrédients</h2>

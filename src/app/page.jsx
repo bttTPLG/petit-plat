@@ -2,10 +2,12 @@ import recipes from "../../data/recipes.json";
 import styles from "@/styles/page.module.css";
 import { RecipeCard } from "@/components/RecipeCard/RecipeCard";
 import { Filter } from "@/components/Filter/Filter";
+import { Banner } from "@/components/Banner/Banner";
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <Banner />
       <main className={styles.main}>
         <div className={styles.filters_container}>
           <div className={styles.filters}>
