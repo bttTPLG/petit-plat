@@ -57,3 +57,11 @@
   font-weight: 400;
   color: #1b1b1b;
 }
+
+.grid_container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 102px;
+}
