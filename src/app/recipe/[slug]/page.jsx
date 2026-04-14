@@ -4,9 +4,9 @@ import Image from "next/image";
 import recipes from "../../../../data/recipes.json";
 
 export default async function RecipePage({ params }) {
-  const { id } = await params;
+  const { slug } = await params;
 
-  const recipe = recipes.find((r) => r.id === parseInt(id));
+  const recipe = recipes.find((r) => r.slug === slug);
 
   if (!recipe) {
     return <p>Recette introuvable</p>;
