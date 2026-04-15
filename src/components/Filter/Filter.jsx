@@ -7,7 +7,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import recipes from "../../../data/recipes.json";
 
-export function Filter({ category }) {
+export function Filter({ category, select }) {
   const [isOpen, setIsOpen] = useState(false);
 
   let list = [];
@@ -30,8 +30,6 @@ export function Filter({ category }) {
 
   const result = [...new Set(list)];
 
-  console.log(result);
-
   return (
     <div className="filter">
       <button onClick={() => setIsOpen(!isOpen)}>
@@ -42,7 +40,9 @@ export function Filter({ category }) {
           <SearchBar placeholderText={""} />
           <ul className="filter-list">
             {result.map((tag, index) => (
-              <li key={index}>{tag}</li>
+              <li key={index} onClick={() => select(tag)}>
+                {tag}
+              </li>
             ))}
           </ul>
         </div>

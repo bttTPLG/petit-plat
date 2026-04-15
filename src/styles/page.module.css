@@ -65,3 +65,18 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 102px;
 }
+
+.tags_container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 65px;
+  flex-wrap: wrap;
+}
+
+.filter_tag {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}

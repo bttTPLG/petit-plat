@@ -1,0 +1,15 @@
+.tag {
+  margin-top: 20px;
+  padding: 17px 18px;
+  background-color: #ffd15b;
+  width: 195px;
+  height: fit-content;
+  border-radius: 10px;
+}
+
+.tag p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  font-family: var(--font-manrope), sans-serif;
+}
