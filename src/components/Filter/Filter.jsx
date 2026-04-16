@@ -5,14 +5,13 @@ import { SearchBar } from "@/components/SearchBar/SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import recipes from "../../../data/recipes.json";
 
-export function Filter({ category, select }) {
+export function Filter({ category, select, abbleRecipe, actifTag }) {
   const [isOpen, setIsOpen] = useState(false);
 
   let list = [];
 
-  recipes.forEach((recipe) => {
+  abbleRecipe.forEach((recipe) => {
     if (category === "Ingrédients") {
       recipe.ingredients.forEach((item) => {
         list.push(item.ingredient);
@@ -39,11 +38,13 @@ export function Filter({ category, select }) {
         <div className="filter-content">
           <SearchBar placeholderText={""} />
           <ul className="filter-list">
-            {result.map((tag, index) => (
-              <li key={index} onClick={() => select(tag)}>
-                {tag}
-              </li>
-            ))}
+            {result
+              .filter((tag) => !actifTag.includes(tag))
+              .map((tag, index) => (
+                <li key={index} onClick={() => select(tag)}>
+                  {tag}
+                </li>
+              ))}
           </ul>
         </div>
       ) : null}

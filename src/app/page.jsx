@@ -34,9 +34,24 @@ export default function Home() {
         <div className={styles.filters_container}>
           <div className={styles.filter_tag}>
             <div className={styles.filters}>
-              <Filter category="Ingrédients" select={addSelectedTag} />
-              <Filter category="Appareils" select={addSelectedTag} />
-              <Filter category="Ustensiles" select={addSelectedTag} />
+              <Filter
+                category="Ingrédients"
+                select={addSelectedTag}
+                abbleRecipe={filtredRecipes}
+                actifTag={selctedTag}
+              />
+              <Filter
+                category="Appareils"
+                select={addSelectedTag}
+                abbleRecipe={filtredRecipes}
+                actifTag={selctedTag}
+              />
+              <Filter
+                category="Ustensiles"
+                select={addSelectedTag}
+                abbleRecipe={filtredRecipes}
+                actifTag={selctedTag}
+              />
             </div>
             <div className={styles.tags_container}>
               {selctedTag.map((item, index) => (
