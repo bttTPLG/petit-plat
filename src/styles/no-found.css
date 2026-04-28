@@ -22,8 +22,10 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  height: calc(100vh - 408px);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 27px;
   margin-bottom: 137.58px;

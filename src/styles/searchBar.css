@@ -38,6 +38,11 @@
   cursor: pointer;
 }
 
+.search-bar button:hover {
+  background-color: #ffd15b;
+  color: black;
+}
+
 .glass-icon {
   height: 28px;
 }

@@ -5,6 +5,7 @@ import styles from "@/styles/page.module.css";
 import { RecipeCard } from "@/components/RecipeCard/RecipeCard";
 import { Filter } from "@/components/Filter/Filter";
 import { Banner } from "@/components/Banner/Banner";
+import { SearchBar } from "@/components/SearchBar/SearchBar";
 import { Tag } from "@/components/Tag/Tag";
 import { useState } from "react";
 
@@ -29,7 +30,16 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <Banner />
+      <Banner>
+        <div className="title-and-research">
+          <h1>
+            DÉCOUVREZ NOS RECETTES <br /> DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+          </h1>
+          <SearchBar
+            placeholderText={"Rechercher une recette, un ingrédient, ..."}
+          />
+        </div>
+      </Banner>
       <main className={styles.main}>
         <div className={styles.filters_container}>
           <div className={styles.filter_tag}>

@@ -1,9 +1,8 @@
 import Image from "next/image";
 import "@/styles/banner.css";
-import { SearchBar } from "@/components/SearchBar/SearchBar";
 import Link from "next/link";
 
-export function Banner({ withSearchBar = true }) {
+export function Banner({ children }) {
   return (
     <header className="banner">
       <div className="logo-container">
@@ -16,16 +15,7 @@ export function Banner({ withSearchBar = true }) {
           />
         </Link>
       </div>
-      {withSearchBar ? (
-        <div className="title-and-research">
-          <h1>
-            DÉCOUVREZ NOS RECETTES <br /> DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
-          </h1>
-          <SearchBar
-            placeholderText={"Rechercher une recette, un ingrédient, ..."}
-          />
-        </div>
-      ) : null}
+      {children}
     </header>
   );
 }

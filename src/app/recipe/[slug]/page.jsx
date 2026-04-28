@@ -15,7 +15,7 @@ export default async function RecipePage({ params }) {
   }
   return (
     <div className={styles.page}>
-      <Banner withSearchBar={false} />
+      <Banner />
       <main className={styles.main}>
         <div className={styles.grid_container}>
           <Image
