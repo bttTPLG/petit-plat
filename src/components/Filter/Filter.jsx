@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export function Filter({ category, select, abbleRecipe, actifTag }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
 
   let list = [];
 
@@ -36,10 +37,11 @@ export function Filter({ category, select, abbleRecipe, actifTag }) {
       </button>
       {isOpen ? (
         <div className="filter-content">
-          <SearchBar placeholderText={""} />
+          <SearchBar placeholderText={""} value={search} onChange={setSearch} />
           <ul className="filter-list">
             {result
               .filter((tag) => !actifTag.includes(tag))
+              .filter((tag) => tag.toLowerCase().includes(search.toLowerCase()))
               .map((tag, index) => (
                 <li key={index} onClick={() => select(tag)}>
                   {tag}
