@@ -10,22 +10,41 @@ import { Tag } from "@/components/Tag/Tag";
 import { useState } from "react";
 
 export default function Home() {
-  const [selctedTag, setSelectedTag] = useState([]);
+  const [selectedTag, setSelectedTag] = useState({
+    ingredients: [],
+    ustensils: [],
+    appliances: [],
+  });
 
-  const addSelectedTag = (tag) => {
-    setSelectedTag((item) => {
-      return [...item, tag];
-    });
+  const addSelectedTag = (category, tag) => {
+    setSelectedTag((prev) => ({
+      ...prev,
+      [category]: [...prev[category], tag],
+    }));
   };
 
   const filtredRecipes = recipes.filter((recipe) => {
-    const filterRecipe = [
-      ...recipe.ingredients.map((i) => i.ingredient),
-      recipe.appliance,
-      ...recipe.ustensils.map((u) => u),
-    ];
+    const recipeIngredients = recipe.ingredients.map((i) =>
+      i.ingredient.toLowerCase(),
+    );
 
-    return selctedTag.every((f) => filterRecipe.includes(f));
+    const recipeAppliance = recipe.appliance.toLowerCase();
+
+    const recipeUstensils = recipe.ustensils.map((u) => u.toLowerCase());
+
+    const ingredientsMatch = selectedTag.ingredients.every((tag) =>
+      recipeIngredients.includes(tag.toLowerCase()),
+    );
+
+    const appliancesMatch = selectedTag.appliances.every((tag) =>
+      recipeAppliance.includes(tag.toLowerCase()),
+    );
+
+    const ustensilsMatch = selectedTag.ustensils.every((tag) =>
+      recipeUstensils.includes(tag.toLowerCase()),
+    );
+
+    return ingredientsMatch && appliancesMatch && ustensilsMatch;
   });
 
   return (
@@ -45,28 +64,43 @@ export default function Home() {
           <div className={styles.filter_tag}>
             <div className={styles.filters}>
               <Filter
-                category="Ingrédients"
+                name="Ingrédients"
+                category="ingredients"
                 select={addSelectedTag}
                 abbleRecipe={filtredRecipes}
-                actifTag={selctedTag}
+                actifTag={selectedTag}
               />
               <Filter
-                category="Appareils"
+                name="Appareils"
+                category="appliances"
                 select={addSelectedTag}
                 abbleRecipe={filtredRecipes}
-                actifTag={selctedTag}
+                actifTag={selectedTag}
               />
               <Filter
-                category="Ustensiles"
+                name="Ustensiles"
+                category="ustensils"
                 select={addSelectedTag}
                 abbleRecipe={filtredRecipes}
-                actifTag={selctedTag}
+                actifTag={selectedTag}
               />
             </div>
             <div className={styles.tags_container}>
-              {selctedTag.map((item, index) => (
-                <Tag key={index} name={item} />
-              ))}
+              <div>
+                {selectedTag.ingredients.map((item, index) => (
+                  <Tag key={index} name={item} />
+                ))}
+              </div>
+              <div>
+                {selectedTag.appliances.map((item, index) => (
+                  <Tag key={index} name={item} />
+                ))}
+              </div>
+              <div>
+                {selectedTag.ustensils.map((item, index) => (
+                  <Tag key={index} name={item} />
+                ))}
+              </div>
             </div>
           </div>
           <div className={styles.counter_recipes}>

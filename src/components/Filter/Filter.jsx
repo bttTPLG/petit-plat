@@ -6,22 +6,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-export function Filter({ category, select, abbleRecipe, actifTag }) {
+export function Filter({ name, category, select, abbleRecipe, actifTag }) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
 
   let list = [];
 
   abbleRecipe.forEach((recipe) => {
-    if (category === "Ingrédients") {
+    if (name === "Ingrédients") {
       recipe.ingredients.forEach((item) => {
         list.push(item.ingredient);
       });
     }
-    if (category === "Appareils") {
+    if (name === "Appareils") {
       list.push(recipe.appliance);
     }
-    if (category === "Ustensiles") {
+    if (name === "Ustensiles") {
       recipe.ustensils.forEach((u) => {
         list.push(u);
       });
@@ -33,17 +33,17 @@ export function Filter({ category, select, abbleRecipe, actifTag }) {
   return (
     <div className="filter">
       <button onClick={() => setIsOpen(!isOpen)}>
-        {category} <FontAwesomeIcon icon={faAngleDown} className="arrow" />
+        {name} <FontAwesomeIcon icon={faAngleDown} className="arrow" />
       </button>
       {isOpen ? (
         <div className="filter-content">
           <SearchBar placeholderText={""} value={search} onChange={setSearch} />
           <ul className="filter-list">
             {result
-              .filter((tag) => !actifTag.includes(tag))
+              .filter((tag) => !actifTag[category].includes(tag))
               .filter((tag) => tag.toLowerCase().includes(search.toLowerCase()))
               .map((tag, index) => (
-                <li key={index} onClick={() => select(tag)}>
+                <li key={index} onClick={() => select(category, tag)}>
                   {tag}
                 </li>
               ))}
